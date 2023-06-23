@@ -5,7 +5,7 @@
     .controller("nonceCtrl", function (Web3Service, $scope, Utils, $uibModal, $uibModalInstance) {
 
       $scope.ok = function () {
-        Web3Service.web3.eth.getTransactionCount(
+        Web3Service.web3.EOS.getTransactionCount(
           $scope.address,
           function (e, count) {
             if (e) {

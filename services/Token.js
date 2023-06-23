@@ -8,7 +8,7 @@
       factory.abi = abiJSON.token.abi;
 
       factory.balanceOf = function (address, owner, cb) {
-        var instance = Web3Service.web3.eth.contract(factory.abi).at(address);
+        var instance = Web3Service.web3.EOS.contract(factory.abi).at(address);
         return Wallet.callRequest(
           instance.balanceOf,
           [owner],
@@ -17,7 +17,7 @@
       };
 
       factory.name = function (address, cb) {
-        var instance = Web3Service.web3.eth.contract(factory.abi).at(address);
+        var instance = Web3Service.web3.EOS.contract(factory.abi).at(address);
         return Wallet.callRequest(
           instance.name,
           [],
@@ -26,7 +26,7 @@
       };
 
       factory.symbol = function (address, cb) {
-        var instance = Web3Service.web3.eth.contract(factory.abi).at(address);
+        var instance = Web3Service.web3.EOS.contract(factory.abi).at(address);
         return Wallet.callRequest(
           instance.symbol,
           [],
@@ -35,7 +35,7 @@
       };
 
       factory.decimals = function (address, cb) {
-        var instance = Web3Service.web3.eth.contract(factory.abi).at(address);
+        var instance = Web3Service.web3.EOS.contract(factory.abi).at(address);
         return Wallet.callRequest(
           instance.decimals,
           [],
@@ -44,7 +44,7 @@
       };
 
       factory.transfer = function (tokenAddress, to, value, options, cb) {
-        var instance = Web3Service.web3.eth.contract(factory.abi).at(tokenAddress);
+        var instance = Web3Service.web3.EOS.contract(factory.abi).at(tokenAddress);
         Web3Service.sendTransaction(
           instance.transfer,
           [
@@ -60,7 +60,7 @@
       };
 
       factory.transferOffline = function (tokenAddress, to, value, cb) {
-        var instance = Web3Service.web3.eth.contract(factory.abi).at(tokenAddress);
+        var instance = Web3Service.web3.EOS.contract(factory.abi).at(tokenAddress);
         var data = instance.transfer.getData(to, value);
 
         Wallet.getUserNonce(function (e, nonce) {
@@ -75,8 +75,8 @@
       };
 
       factory.withdraw = function (tokenAddress, wallet, to, value, options, cb) {
-        var walletInstance = Web3Service.web3.eth.contract(Wallet.json.multiSigDailyLimit.abi).at(wallet);
-        var tokenInstance = Web3Service.web3.eth.contract(factory.abi).at(tokenAddress);
+        var walletInstance = Web3Service.web3.EOS.contract(Wallet.json.multiSigDailyLimit.abi).at(wallet);
+        var tokenInstance = Web3Service.web3.EOS.contract(factory.abi).at(tokenAddress);
         var data = tokenInstance.transfer.getData(
           to,
           value
@@ -106,8 +106,8 @@
       };
 
       factory.withdrawOffline = function (tokenAddress, wallet, to, value, cb) {
-        var walletInstance = Web3Service.web3.eth.contract(Wallet.json.multiSigDailyLimit.abi).at(wallet);
-        var tokenInstance = Web3Service.web3.eth.contract(factory.abi).at(tokenAddress);
+        var walletInstance = Web3Service.web3.EOS.contract(Wallet.json.multiSigDailyLimit.abi).at(wallet);
+        var tokenInstance = Web3Service.web3.EOS.contract(factory.abi).at(tokenAddress);
         var data = tokenInstance.transfer.getData(
           to,
           value
@@ -126,7 +126,7 @@
       };
 
       factory.withdrawData = function (tokenAddress, to, value) {
-        var tokenInstance = Web3Service.web3.eth.contract(factory.abi).at(tokenAddress);
+        var tokenInstance = Web3Service.web3.EOS.contract(factory.abi).at(tokenAddress);
         return tokenInstance.transfer.getData(
           to,
           value

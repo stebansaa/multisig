@@ -178,7 +178,7 @@
               )
           );
 
-          // Get ETH Balance
+          // Get EOS Balance
           batch.add(
             Wallet.getBalance(
               $scope.wallet.address,

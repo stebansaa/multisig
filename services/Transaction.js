@@ -56,7 +56,7 @@
           }
           catch (e) {}
 
-          Web3Service.web3.eth.getTransaction(
+          Web3Service.web3.EOS.getTransaction(
             tx.txHash,
             getTransactionInfo
           );
@@ -111,7 +111,7 @@
         */
         factory.send = function (tx, cb) {
           Web3Service.sendTransaction(
-            Web3Service.web3.eth,
+            Web3Service.web3.EOS,
             [
               tx
             ],
@@ -139,7 +139,7 @@
           var options = Object.assign({ onlySimulate: true }, tx);
 
           Web3Service.sendTransaction(
-            Web3Service.web3.eth,
+            Web3Service.web3.EOS,
             [
               tx
             ],
@@ -174,7 +174,7 @@
                 nonce: ethereumjs.Util.intToHex(nonce)
               };
 
-              Web3Service.web3.eth.signTransaction(txInfo, function (e, signed) {
+              Web3Service.web3.EOS.signTransaction(txInfo, function (e, signed) {
                 if (e) {
                   cb(e);
                 }
@@ -193,7 +193,7 @@
         factory.signMethodOffline = function (tx, abi, method, params, cb) {
 
           // Get data
-          var instance = Web3Service.web3.eth.contract(abi).at(tx.to);
+          var instance = Web3Service.web3.EOS.contract(abi).at(tx.to);
 
           tx.data = instance[method].getData.apply(this, params);
 
@@ -206,7 +206,7 @@
         */
         factory.sendMethod = function (tx, abi, method, params, cb) {
           // Instance contract
-          var instance = Web3Service.web3.eth.contract(abi).at(tx.to);
+          var instance = Web3Service.web3.EOS.contract(abi).at(tx.to);
           var transactionParams = params.slice();
           transactionParams.push(tx);
 
@@ -240,7 +240,7 @@
 
         factory.simulateMethod = function (tx, abi, method, params, cb) {
           // Instance contract
-          var instance = Web3Service.web3.eth.contract(abi).at(tx.to);
+          var instance = Web3Service.web3.EOS.contract(abi).at(tx.to);
           var options = Object.assign({ onlySimulate: true }, tx);
 
           try {
@@ -266,7 +266,7 @@
         * Send signed transaction
         **/
         factory.sendRawTransaction = function (tx, cb) {
-          Web3Service.web3.eth.sendRawTransaction(
+          Web3Service.web3.EOS.sendRawTransaction(
             tx,
             cb
           );
@@ -289,13 +289,13 @@
             // Get transaction receipt
             if (tx && !tx.receipt) {
               batch.add(
-                Web3Service.web3.eth.getTransactionReceipt.request(txHashes[i], processReceipt)
+                Web3Service.web3.EOS.getTransactionReceipt.request(txHashes[i], processReceipt)
               );
             }
             // Get transaction info
             if (tx && !tx.info) {
               batch.add(
-                Web3Service.web3.eth.getTransaction.request(
+                Web3Service.web3.EOS.getTransaction.request(
                   txHashes[i],
                   getTransactionInfo
                 )
@@ -308,7 +308,7 @@
 
         factory.getEthereumChain = function () {
           return $q(function (resolve, reject) {
-            Web3Service.web3.eth.getBlock(0, function (e, block) {
+            Web3Service.web3.EOS.getBlock(0, function (e, block) {
               var data = {};
 
               if (e) {

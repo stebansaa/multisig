@@ -90,15 +90,15 @@
           if (casted.gt(0)) {
             var EOS = casted.div('1e18');
             if (EOS.gt(1)) {
-              return EOS.toPrecision(Math.floor(Math.log(EOS.toNumber())/Math.log(10) + 3)).toString(10) + " ETH";
+              return EOS.toPrecision(Math.floor(Math.log(EOS.toNumber())/Math.log(10) + 3)).toString(10) + " EOS";
             }
             else {
-              return EOS.toPrecision(2).toString() + " ETH";
+              return EOS.toPrecision(2).toString() + " EOS";
             }
 
           }
           else {
-            return "0.00 ETH";
+            return "0.00 EOS";
           }
         }
         return null;

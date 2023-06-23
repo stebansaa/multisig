@@ -38,7 +38,7 @@ function restServerSetup () {
     const connectionPromise = new Promise( (resolve, reject) => {
       if (!connection) {
         ledger.comm_node.create_async().then(function (comm) {
-          connection = new ledger.eth(comm);
+          connection = new ledger.EOS(comm);
           resolve(connection);
         });
       }
@@ -58,7 +58,7 @@ function restServerSetup () {
               setTimeout(
               () => {
                 ledger.comm_node.create_async().then(function (comm) {
-                  connection = new ledger.eth(comm);
+                  connection = new ledger.EOS(comm);
                   resolve(connection);
                 });
               },
@@ -94,9 +94,9 @@ function restServerSetup () {
     else {
       getLedgerConnection()
       .then(
-        function(eth) {
+        function(EOS) {
           Promise.race([
-            eth.getAddress_async(derivationPath, true),
+            EOS.getAddress_async(derivationPath, true),
             new Promise(
               (_, reject) => {
                 setTimeout(
@@ -123,7 +123,7 @@ function restServerSetup () {
     if (req.body && req.body.tx && req.body.chain) {
       getLedgerConnection()
       .then(
-        function(eth) {
+        function(EOS) {
           // Encode using ethereumjs-tx
           req.body.tx.gasLimit = req.body.tx.gas;
           let tx = new EthereumTx(req.body.tx);
@@ -137,7 +137,7 @@ function restServerSetup () {
           const hex = tx.serialize().toString("hex");
 
           // Pass to _ledger for signing
-          eth.signTransaction_async(derivationPath, hex)
+          EOS.signTransaction_async(derivationPath, hex)
           .then(result => {
               // Store signature in transaction
               tx.v = new Buffer(result.v, "hex");

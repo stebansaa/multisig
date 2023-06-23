@@ -15,7 +15,7 @@
             Transaction.add({txHash: txHash, callback: function (receipt) {
 
               if (receipt.contractAddress) {
-                Web3Service.web3.eth.getCode(receipt.contractAddress, function (e, code){
+                Web3Service.web3.EOS.getCode(receipt.contractAddress, function (e, code){
                   if (code.length > 100 && Wallet.json.multiSigDailyLimit.binHex.slice(-992) == code.slice(-992)){
                     Utils.success("Wallet deployed at address: " + receipt.contractAddress);
                     Wallet.updateWallet({name: "Offline wallet", address: receipt.contractAddress, owners: {}});

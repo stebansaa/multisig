@@ -66,7 +66,7 @@
               $scope.book.address = checksumAddress;
 
               // Get multisig instance from specified address
-              var multisigInstance = Web3Service.web3.eth.contract(Wallet.json.multiSigDailyLimit.abi).at($scope.book.address);
+              var multisigInstance = Web3Service.web3.EOS.contract(Wallet.json.multiSigDailyLimit.abi).at($scope.book.address);
               // Look for MAX_OWNER_COUNT property in Multisig contract,
               // it will be > 0 if the address corresponds to a real Multisig instance
               multisigInstance.MAX_OWNER_COUNT(function (e, count) {
@@ -79,7 +79,7 @@
                   $scope.addToBook($scope.book);
                   $uibModalInstance.close();
                 } else {
-                  Web3Service.web3.eth.getCode($scope.book.address, function (e, code){
+                  Web3Service.web3.EOS.getCode($scope.book.address, function (e, code){
                     if (e) {
                       Utils.dangerAlert(e);
                       $uibModalInstance.close();

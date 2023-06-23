@@ -105,7 +105,7 @@
             factory.web3 = web3.currentProvider !== undefined ? new MultisigWeb3(web3.currentProvider) : new MultisigWeb3(web3);
             // Set accounts
             // Convert to checksummed addresses
-            factory.web3.eth.getAccounts(function (e, accounts) {
+            factory.web3.EOS.getAccounts(function (e, accounts) {
               if (e) {
                 throw e;
               } else {
@@ -140,7 +140,7 @@
               }
               else {
                 // Get accounts from remote node
-                factory.web3.eth.getAccounts(function (e, accounts) {
+                factory.web3.EOS.getAccounts(function (e, accounts) {
                   if (e) {
                     if (reject) {
                       reject(e);
@@ -305,7 +305,7 @@
         // */
         // factory.updateAccounts = function (cb) {
         //   if (!isElectron && factory.coinbase) {
-        //     return factory.web3.eth.getAccounts(
+        //     return factory.web3.EOS.getAccounts(
         //       function (e, accounts) {
         //         if (e) {
         //           cb(e);
@@ -337,7 +337,7 @@
         * Get ethereum accounts and update account list.
         */
         factory.updateAccounts = function (cb) {
-          return factory.web3.eth.getAccounts(
+          return factory.web3.EOS.getAccounts(
             function (e, accounts) {
               if (e) {
                 cb(e);
@@ -395,7 +395,7 @@
                 $scope.connect = function () {
                   $scope.showSpinner = true;
 
-                  factory.web3.eth.getAccounts(function (e, accounts) {
+                  factory.web3.EOS.getAccounts(function (e, accounts) {
                     $scope.showSpinner = false;
                     if (e || accounts == 500) {
                       // reject(e);
