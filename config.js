@@ -178,8 +178,8 @@ var txDefault = {
       name: 'Rinkeby',
       address: '0x19ba60816abca236baa096105df09260a4791418'
     },
-    'privatenet': {
-      name: 'Privatenet',
+    'EOSEVM': {
+      name: 'EOSEVM',
       address: '0xd79426bcee5b46fde413ededeb38364b3e666097'
     }
   }
