@@ -317,7 +317,7 @@
                   title: "Remove owner " + $filter("addressCanBeOwner")(owner, $scope.wallet)
                 };
               case "cea08621":
-                var limit = $filter("ether")("0x" + tx.data.slice(11));
+                var limit = $filter("EOS")("0x" + tx.data.slice(11));
                 return {
                   title: "Change daily limit to " + limit
                 };
@@ -375,12 +375,12 @@
           // Check if trasanction was sent to an item in address book
           else if ($scope.addressBook && $scope.addressBook[tx.to]) {
             return {
-              title: "Transfer " + $filter("ether")(tx.value) + " to " + $scope.addressBook[tx.to].name
+              title: "Transfer " + $filter("EOS")(tx.value) + " to " + $scope.addressBook[tx.to].name
             }
           }
           else {
             return {
-              title: "Transfer " + $filter("ether")(tx.value) + " to " + $filter("addressCanBeOwner")(tx.to, $scope.wallet)
+              title: "Transfer " + $filter("EOS")(tx.value) + " to " + $filter("addressCanBeOwner")(tx.to, $scope.wallet)
             };
           }
         };

@@ -380,7 +380,7 @@ angular.module('multiSigWeb').run(['$templateCache', function($templateCache) {
     "          ng-bind-html=\"getDestinationOrContract(transaction) | dashIfEmpty\">\n" +
     "          </a>\n" +
     "        </td>\n" +
-    "        <td ng-bind-html=\"transaction.info.value | ether | dashIfEmpty\">\n" +
+    "        <td ng-bind-html=\"transaction.info.value | EOS | dashIfEmpty\">\n" +
     "        </td>\n" +
     "        <td>\n" +
     "          <div ng-show=\"transaction.decodedData.title\" class=\"row\">\n" +
@@ -465,7 +465,7 @@ angular.module('multiSigWeb').run(['$templateCache', function($templateCache) {
   $templateCache.put('src/partials/wallet.html',
     "<div class=\"page-header\">\n" +
     "  <h1>\n" +
-    "    {{wallet.name}} {{balance|ether}}\n" +
+    "    {{wallet.name}} {{balance|EOS}}\n" +
     "  </h1>\n" +
     "  <h5 class=\"grey\">{{wallet.address}}</h5>\n" +
     "  <span class=\"btn btn-success\" ng-click=\"showSafeMigrationModal()\">Safe Multisig Migration</span>\n" +
@@ -691,7 +691,7 @@ angular.module('multiSigWeb').run(['$templateCache', function($templateCache) {
     "          </div>\n" +
     "        </td>\n" +
     "        <td>\n" +
-    "          {{transactions[txId].value|ether}}\n" +
+    "          {{transactions[txId].value|EOS}}\n" +
     "        </td>\n" +
     "        <td>\n" +
     "          <div class=\"text-center\" ng-show=\"!transactions[txId].dataDecoded.title\">\n" +
@@ -845,7 +845,7 @@ angular.module('multiSigWeb').run(['$templateCache', function($templateCache) {
     "          </div>\n" +
     "        </td>\n" +
     "        <td>\n" +
-    "          <span value-or-dash-by-connectivity=\"{{wallet.balance|ether}}\">{{wallet.balance|ether}}</span>\n" +
+    "          <span value-or-dash-by-connectivity=\"{{wallet.balance|EOS}}\">{{wallet.balance|EOS}}</span>\n" +
     "          <button type=\"button\" disabled-if-no-accounts-or-wallet-available=\"{{wallet.address}}\"\n" +
     "            class=\"btn btn-default btn-sm pull-right\"\n" +
     "            ng-click=\"deposit(wallet)\">\n" +
@@ -861,7 +861,7 @@ angular.module('multiSigWeb').run(['$templateCache', function($templateCache) {
     "          </button>\n" +
     "        </td>\n" +
     "        <td>\n" +
-    "          <span value-or-dash-by-connectivity=\"{{wallet.limit|ether}}\">{{wallet.limit|ether}}</span>\n" +
+    "          <span value-or-dash-by-connectivity=\"{{wallet.limit|EOS}}\">{{wallet.limit|EOS}}</span>\n" +
     "          <button type=\"button\" disabled-if-no-accounts-or-wallet-available=\"{{wallet.address}}\"\n" +
     "            class=\"btn btn-default btn-sm pull-right\"\n" +
     "            ng-click=\"setLimit(wallet)\">\n" +
@@ -869,7 +869,7 @@ angular.module('multiSigWeb').run(['$templateCache', function($templateCache) {
     "          </button>\n" +
     "        </td>\n" +
     "        <td>\n" +
-    "          <span value-or-dash-by-connectivity=\"{{wallet.maxWithdraw|ether}}\">{{wallet.maxWithdraw|ether}}</span>\n" +
+    "          <span value-or-dash-by-connectivity=\"{{wallet.maxWithdraw|EOS}}\">{{wallet.maxWithdraw|EOS}}</span>\n" +
     "          <button type=\"button\" disabled-if-no-accounts-or-wallet-available=\"{{wallet.address}}\"\n" +
     "            class=\"btn btn-default btn-sm pull-right\"\n" +
     "            data-action=\"withdraw\"\n" +

@@ -187,7 +187,7 @@
               element.html('Execution failure: a multisig transaction is executed unsuccessfully');
             }
             else if (attrs.alertEventDescription == 'Deposit') {
-              element.html('Deposit: an ether deposit was made');
+              element.html('Deposit: an EOS deposit was made');
             }
             else if (attrs.alertEventDescription == 'Owner Addition') {
               element.html('Owner addition: a new multisgi owner was added');

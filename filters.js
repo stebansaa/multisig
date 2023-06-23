@@ -69,7 +69,7 @@
         }
         else if ( log && log.match(/^[0-9]+$/) !== null) {
           if (isEther) {
-            return $filter('ether')(log);
+            return $filter('EOS')(log);
           }
           else if(log.toString().length < 8){
             return log.toString().slice(0, 7);
@@ -83,17 +83,17 @@
         }
       };
     })
-    .filter('ether', function () {
+    .filter('EOS', function () {
       return function (num) {
         if (num) {
           var casted = new Web3().toBigNumber(num);
           if (casted.gt(0)) {
-            var ether = casted.div('1e18');
-            if (ether.gt(1)) {
-              return ether.toPrecision(Math.floor(Math.log(ether.toNumber())/Math.log(10) + 3)).toString(10) + " ETH";
+            var EOS = casted.div('1e18');
+            if (EOS.gt(1)) {
+              return EOS.toPrecision(Math.floor(Math.log(EOS.toNumber())/Math.log(10) + 3)).toString(10) + " ETH";
             }
             else {
-              return ether.toPrecision(2).toString() + " ETH";
+              return EOS.toPrecision(2).toString() + " ETH";
             }
 
           }

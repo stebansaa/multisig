@@ -54,7 +54,7 @@
           ng-bind-html="getDestinationOrContract(transaction) | dashIfEmpty">
           </a>
         </td>
-        <td ng-bind-html="transaction.info.value | ether | dashIfEmpty">
+        <td ng-bind-html="transaction.info.value | EOS | dashIfEmpty">
         </td>
         <td>
           <div ng-show="transaction.decodedData.title" class="row">
