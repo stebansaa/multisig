@@ -64,18 +64,6 @@ var txDefault = {
       name: 'Mainnet',
       address: txDefaultOrig.walletFactoryAddress
     },
-    'ropsten': {
-      name: 'Ropsten',
-      address: '0x5cb85db3e237cac78cbb3fd63e84488cac5bd3dd'
-    },
-    'kovan': {
-      name: 'Kovan',
-      address: '0x2c992817e0152a65937527b774c7a99a84603045'
-    },
-    'rinkeby': {
-      name: 'Rinkeby',
-      address: '0x19ba60816abca236baa096105df09260a4791418'
-    },
     'EOSEVM': {
       name: 'EOSEVM',
       address: '0xd79426bcee5b46fde413ededeb38364b3e666097'
