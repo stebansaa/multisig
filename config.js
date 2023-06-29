@@ -15,7 +15,7 @@ var txDefaultOrig =
   ethereumNode: "https://api.evm.eosnetwork.com ",
   connectionChecker: {
     method : "OPTIONS",
-    url : "https://www.google.com",
+    url : "https://www.yahoo.com",
     checkInterval: 5000
   },
   accountsChecker: {
