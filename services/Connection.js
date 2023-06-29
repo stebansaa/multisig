@@ -25,7 +25,7 @@
       * Check config.js for the endpoint configuration
       */
       factory.checkConnection = function () {
-        factory.isConnected = navigator.onLine; // true | false
+        factory.isConnected = true // navigator.onLine; // true | false
         callDigest();
       };
 
