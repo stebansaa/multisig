@@ -1,27 +1,12 @@
 # EasyMultisig
 This repository contains a multisignature wallet implementation written in Solidity, based on the first version of the Gnosis Multisignature Wallet.
 
-Table of Contents
-Overview
-Features
-Getting Started
-Prerequisites
-Installation
-Usage
-Contributing
-License
-Overview
 A multisignature wallet, also known as a multi-sig wallet, is a type of cryptocurrency wallet that requires multiple signatures from different authorized parties to approve a transaction. This adds an extra layer of security and reduces the risk of unauthorized access to funds.
 
 This repository provides an implementation of a multisignature wallet in Solidity, based on the first version of the Gnosis Multisignature Wallet. It allows multiple Ethereum addresses to be designated as owners of the wallet, and a configurable number of owners must provide their signatures to approve a transaction.
 
-Features
-Configurable number of required owners for transaction approval
-Ability to add and remove owners dynamically
-Transaction history and event logging
-Support for different Ethereum networks (e.g., mainnet, testnet)
-Getting Started
-Prerequisites
+
+## Prerequisites
 To run and interact with the multisignature wallet, you'll need the following:
 
 Node.js (v12 or higher)
@@ -29,21 +14,9 @@ Truffle (v5 or higher)
 Ganache or a compatible Ethereum development network
 Installation
 Clone this repository to your local machine.
-
-shell
-Copy code
-git clone https://github.com/your-username/multisig-wallet.git
-Navigate to the project directory.
-
-shell
-Copy code
-cd multisig-wallet
 Install the required dependencies.
 
-shell
-Copy code
-npm install
-Usage
+
 To deploy and interact with the multisignature wallet contract, follow these steps:
 
 Make sure your local Ethereum development network (e.g., Ganache) is running.
